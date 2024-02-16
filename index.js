@@ -9,29 +9,29 @@ app.use(express.json())
 const port = 3000
 
 app.use(
- cors({
-  origin: ['*'],
-     origin: ['https://react-projec-bestmind-online.vercel.app'],
-  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
- })
+    cors({
+        origin: ['*'],
+        //origin: ['https://react-projec-bestmind-online.vercel.app'],
+        methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    })
 )
 
 app.use('/produto', produtoRoute)
 
 connectToDatabase()
- .then((connection) => {
-  console.log('Conexão com o banco de dados estabelecida')
+    .then((connection) => {
+        console.log('Conexão com o banco de dados estabelecida')
 
-  app.get('/', (req, res) => {
-   res.json({
-       message: 'Bem-vindo à nossa loja, Nunes Sport!',
-   })
-  })
+        app.get('/', (req, res) => {
+            res.json({
+                message: 'Bem-vindo à nossa loja, Nunes Sport!',
+            })
+        })
 
-  app.listen(port, () => {
-   console.log(`Servidor rodando em: http://localhost:${port}`)
-  })
- })
- .catch((error) => {
-  console.error('Erro na inicialização do servidor:', error)
- })
+        app.listen(port, () => {
+            console.log(`Servidor rodando em: http://localhost:${port}`)
+        })
+    })
+    .catch((error) => {
+        console.error('Erro na inicialização do servidor:', error)
+    })
