@@ -10,7 +10,7 @@ const port = 3000
 
 app.use(
     cors({
-        origin: ['*'],
+        origin: '*',
         //origin: ['https://react-projec-bestmind-online.vercel.app'],
         methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
     })
